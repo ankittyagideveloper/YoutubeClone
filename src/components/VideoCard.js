@@ -6,22 +6,25 @@ const VideoCard = ({ info, adv }) => {
   console.log(snippet, statistics);
   const { channelTitle, title, thumbnails } = snippet;
   return (
-    <div className="p-2 m-2 w-80 md:w-80 shadow-lg cursor-pointer h-90">
+    <div className="p-2 m-2 w-80 md:w-80 shadow-lg cursor-pointer h-90 h-72">
       <img className="rounded-lg" src={thumbnails.medium.url} alt="thumbnail" />
       <div>
-        <div className="font-bold py-2">{title}</div>
+        <div className="font-bold  line-clamp-2">{title}</div>
         <div>{channelTitle}</div>
-        <div>{statistics?.viewCount} Views</div>
+        {!adv && <div>{statistics?.viewCount} Views</div>}
       </div>
-      {adv && <div>Advertisement</div>}
     </div>
   );
 };
 export const AdCard = ({ info }) => {
   return (
-    <div className="border border-red-900">
+    <a
+      rel="noreferrer"
+      target="_blank"
+      href="https://www.linkedin.com/in/thereactdeveloper/"
+    >
       <VideoCard info={info} adv={true} />
-    </div>
+    </a>
   );
 };
 
