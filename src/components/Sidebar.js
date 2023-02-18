@@ -2,7 +2,13 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { closeMenu } from "../utils/appSlice";
-import { MdHomeFilled } from "react-icons/md";
+import {
+  MdHomeFilled,
+  MdVideoSettings,
+  MdSubscriptions,
+  MdMusicNote,
+} from "react-icons/md";
+
 const Sidebar = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
   //early return pattern
@@ -27,7 +33,7 @@ const Sidebar = () => {
         <li className="hover:bg-gray-100 p-2 rounded-lg p-2 mb-1">
           <Link to="/" className="flex items-center">
             <div className="pr-6">
-              <MdHomeFilled size="23px" />
+              <MdVideoSettings size="23px" />
             </div>
             <div className="font-semibold text-sm">Shorts</div>
           </Link>
@@ -36,7 +42,7 @@ const Sidebar = () => {
         <li className="hover:bg-gray-100 p-2 rounded-lg p-2 mb-1">
           <Link to="/" className="flex items-center">
             <div className="pr-6">
-              <MdHomeFilled size="23px" />
+              <MdSubscriptions size="23px" />
             </div>
             <div className="font-semibold text-sm">Videos</div>
           </Link>
@@ -45,7 +51,7 @@ const Sidebar = () => {
         <li className="hover:bg-gray-100 p-2 rounded-lg p-2 mb-1">
           <Link to="/" className="flex items-center">
             <div className="pr-6">
-              <MdHomeFilled size="23px" />
+              <MdMusicNote size="23px" />
             </div>
             <div className="font-semibold text-sm">Live</div>
           </Link>
