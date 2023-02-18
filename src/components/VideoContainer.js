@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { YOUTUBE_SEARCH_RESULTS, YOUTUBE_VIDEOS_API } from "../Constants";
 import VideoCard from "./VideoCard";
 import { AdCard } from "./VideoCard";
 
@@ -11,12 +10,20 @@ const VideoContainer = () => {
   useEffect(() => {
     fetchVieos();
   }, [getSearchQuery]);
+
   const fetchVieos = async () => {
     let data;
     if (getSearchQuery?.length > 0) {
-      data = await fetch(YOUTUBE_SEARCH_RESULTS + getSearchQuery);
+      data = await fetch(
+        process.env.REACT_APP_YOUTUBE_SEARCH_RESULTS +
+          process.env.REACT_APP_API_KEY +
+          "&q=" +
+          getSearchQuery
+      );
     } else {
-      data = await fetch(YOUTUBE_VIDEOS_API);
+      data = await fetch(
+        process.env.REACT_APP_YOUTUBE_VIDEOS_API + process.env.REACT_APP_API_KEY
+      );
     }
 
     const videosData = await data?.json();
@@ -40,4 +47,3 @@ const VideoContainer = () => {
   );
 };
 export default VideoContainer;
-//videos?.length > 0 && ))
