@@ -19,7 +19,7 @@ const WatchPage = () => {
       <iframe
         width={`${screenSize < 400 ? "400" : "1000"}`}
         height={`${screenSize < 400 ? "300" : "500"}`}
-        src={`https://www.youtube.com/embed/${url}`}
+        src={`https://www.youtube.com/embed/${url}?autoplay=1&loop=1&autopause=0&muted=1`}
         title="YouTube video player"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
